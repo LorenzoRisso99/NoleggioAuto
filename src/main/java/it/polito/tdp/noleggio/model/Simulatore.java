@@ -30,7 +30,7 @@ public class Simulatore {
 		this.autoDisponibili = NC ;
 	}
 	
-	public void run() {
+	public void run() {     //Esegue la simulazione finche coda non è vuota
 		
 		while(!this.queue.isEmpty()) {
 			Event e = this.queue.poll() ;
@@ -50,6 +50,7 @@ public class Simulatore {
 	private void processEvent(Event e) {
 		
 		switch(e.getType()) {
+		
 		case NUOVO_CLIENTE:
 			this.nClientiTot++ ;
 			if(this.autoDisponibili>0) {
@@ -61,6 +62,7 @@ public class Simulatore {
 				this.nClientiInsoddisfatti++ ;
 			}
 			break;
+			
 		case AUTO_RESTITUITA:
 			this.autoDisponibili++ ;
 			break;
